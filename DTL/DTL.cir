@@ -1,0 +1,27 @@
+*******************************************************
+* Filename: DTL.cir
+* Author: larsonma@msoe.edu <Mitchell Larson>
+* Date: Apr 10 2018
+* Provides:
+* - DC analysis of a diode-transistor logic circuit
+* - originating in 1962
+*******************************************************
+.model npnt NPN BF=100 IS=1.8f
+.model diode D IS=1pA n=1.8 BV=75
+
+
+VA 1 0 DC 5
+VCC 3 0 DC 5
+
+RB 2 3 3.9K
+RC 3 4 3.9K
+
+D1 2 1 diode
+D2 2 5 diode
+
+Q1 4 5 0 npnt
+
+.DC VA 0 5 0.001
+.PROBE
+.END
+

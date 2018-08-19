@@ -1,0 +1,25 @@
+*******************************************************
+* Filename: TTL.cir
+* Author: larsonma@msoe.edu <Mitchell Larson>
+* Date: Apr 10 2018
+* Provides:
+* - DC analysis of a transistor-transistor logic circuit
+* - originating in 1963
+*******************************************************
+.model npnt NPN BF=100 IS=1.8f
+.model diode D IS=1pA n=1.8 BV=75
+
+
+VA 1 0 DC 5
+VCC 3 0 DC 5
+
+RB1 2 3 3.9K
+RC2 3 4 3.9K
+
+Q1 5 2 1 npnt
+Q2 4 5 0 npnt
+
+.DC VA 0 5 0.001
+.PROBE
+.END
+

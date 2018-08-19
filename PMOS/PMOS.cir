@@ -1,0 +1,21 @@
+*******************************************************
+* Filename: PMOS.cir
+* Author: larsonma@msoe.edu <Mitchell Larson>
+* Date: Apr 10 2018
+* Provides:
+* - DC analysis of a MOS logic inverter circuit
+* - originating in 1964
+*******************************************************
+.model pmod PMOS KP=80U VTO=-0.7V
+
+VA 1 0 DC -5
+VDD 2 0 DC -5
+
+RD 2 3 3.9K
+
+M1 3 1 0 0 pmod W=10U L=2U
+
+.DC VA -5 0 0.001
+.PROBE
+.END
+
